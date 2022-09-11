@@ -1,7 +1,11 @@
 import os
 import subprocess
+from dotenv import load_dotenv
 
-TMC_FOLDER = '/tmp/tmc'
+load_dotenv()
+
+TMC_FOLDER = os.getenv('TMC_FOLDER')
+
 def clang_format(input: str) -> None:
     '''
     Write the code into a temporary file, run clang-format on it and then read the code back.
